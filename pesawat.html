@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fasco Travel - Homepage</title>
+  <style>
+    :root{--blue:#1e90ff;--dark:#0b2545;--muted:#6b7280}
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; color:#0b2545}
+    .container{max-width:1100px;margin:24px auto;padding:0 16px}
+
+    /* ===== Header ===== */
+    header{background:linear-gradient(90deg, #f8fbff, #ffffff);border-radius:12px;padding:18px 20px;box-shadow:0 6px 18px rgba(11,37,69,0.06)}
+    .top-row{display:flex;align-items:center;gap:16px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;color:var(--dark)}
+    .logo .mark{width:40px;height:40px;background:var(--blue);border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-weight:800}
+
+    /* fitur di header (3 fitur) */
+    .features{display:flex;gap:8px;margin-left:16px}
+    .feature{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;cursor:pointer;transition:all .18s ease;border:1px solid transparent}
+    .feature:hover{transform:translateY(-3px);box-shadow:0 6px 14px rgba(30,144,255,0.08)}
+    .feature.active{background:var(--blue);color:white;border-color:rgba(30,144,255,0.12)}
+    .feature svg{width:18px;height:18px;flex-shrink:0}
+
+    /* search bar */
+    .search{margin-top:14px;display:flex;gap:12px;align-items:center}
+    .search .input{flex:1;background:white;padding:12px;border-radius:10px;border:1px solid #e6eef9;display:flex;gap:8px;align-items:center}
+    .input input{border:0;outline:0;font-size:14px;width:100%}
+    .btn-search{background:var(--dark);color:white;padding:10px 16px;border-radius:10px;border:0;cursor:pointer}
+
+    /* helper */
+    .right-actions{margin-left:auto;display:flex;gap:10px;align-items:center}
+    .icon-btn{padding:8px;border-radius:8px;border:1px solid #eef3fb;background:white}
+
+    @media (max-width:760px){
+      .features{display:none}
+      .top-row{gap:8px}
+      .search{flex-direction:column;align-items:stretch}
+      .right-actions{display:none}
+    }
+
+    /* sample content */
+    .hero{margin-top:18px;padding:18px;border-radius:10px;background:linear-gradient(180deg,#ffffff, #f7fbff);display:flex;align-items:center;justify-content:space-between}
+    .hero .left{max-width:60%}
+    .cards{display:flex;gap:12px;margin-top:12px}
+    .card{padding:12px;border-radius:10px;background:white;box-shadow:0 6px 14px rgba(11,37,69,0.03);flex:1}
+
+    footer{
+  width: 100vw !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  margin-bottom: calc(10% - 10vw) !important;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="top-row">
+        <a href="index.html" class="logo" style="text-decoration:none;color:inherit;">
+  <div class="mark">FSC</div>
+  <div>
+    <div style="font-size:14px;">Fasco Travel</div>
+    <div style="font-size:12px;color:var(--muted)">Cari tiket & hotel, cepat</div>
+  </div>
+</a>
+
+        <!-- fitur utama di header: Flights, Hotels, Packages -->
+<nav class="features" aria-label="Fitur utama">
+
+  <a class="feature active" data-feature="flights" title="Pesawat" 
+     href="pesawat.html" style="text-decoration:none;color:inherit;">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path d="M2 16.5L22 9l-3-1-4 1L9 6 7 7l3 2L4 14l-2.5 2.5z" fill="currentColor"/>
+    </svg>
+    <span>Pesawat</span>
+  </a>
+
+  <a class="feature" data-feature="hotels" title="Hotel" 
+     href="hotel.html" style="text-decoration:none;color:inherit;">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path d="M3 11h18v6H3zM5 11V7a2 2 0 012-2h10a2 2 0 012 2v4"
+            fill="currentColor"/>
+    </svg>
+    <span>Hotel</span>
+  </a>
+
+  <a class="feature" data-feature="packages" title="Paket" 
+     href="paket_wisata.html" style="text-decoration:none;color:inherit;">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path d="M12 2l8 4v6c0 5-3 9-8 10-5-1-8-5-8-10V6l8-4z" fill="currentColor"/>
+    </svg>
+    <span>Paket</span>
+  </a>
+
+</nav>
+
+
+        <div class="right-actions">
+          <button class="icon-btn" title="Bantuan">Bantuan</button>
+          <button class="icon-btn" title="Masuk">Masuk</button>
+        </div>
+      </div>
+
+      <!-- Search bar -->
+      <div class="search">
+        <div class="input">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.35-4.35" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <input id="q" placeholder="Cari Tiket Pesawat" />
+        </div>
+        <div style="width:200px;">
+          <div class="input" style="padding:10px 12px;justify-content:space-between">
+            <span style="font-size:14px;color:var(--muted)">Tanggal</span>
+            <input id="date" type="date" style="border:0;outline:0;width:110px;text-align:right" />
+          </div>
+        </div>
+        <button class="btn-search" onclick="doSearch()">Cari</button>
+      </div>
+
+    </header>
+<!-- ====================== Konten Halaman Pesawat ====================== -->
+<div style="margin-top:25px;">
+
+  <!-- Judul -->
+  <h2 style="margin-bottom:10px;">Tiket Pesawat Terbaik Untukmu</h2>
+  <p style="color:var(--muted);margin-top:-5px;">
+    Temukan penerbangan termurah & tercepat ke berbagai tujuan.
+  </p>
+
+  <!-- Daftar Tiket -->
+  <div style="display:flex;flex-direction:column;gap:16px;margin-top:20px;">
+
+    <!-- Flight Card -->
+    <div style="background:white;border-radius:12px;padding:16px;box-shadow:0 6px 14px rgba(11,37,69,0.05);display:flex;align-items:center;justify-content:space-between;">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <img src="https://img.icons8.com/fluency/48/airplane-take-off.png" width="45">
+        <div>
+          <b>Jakarta → Surabaya</b>
+          <div style="color:var(--muted);font-size:13px;">Lion Air • 1 jam 25 menit</div>
+        </div>
+      </div>
+
+      <div style="text-align:right;">
+        <div style="font-size:18px;font-weight:700;color:var(--dark);">Rp 589.000</div>
+        <button style="margin-top:6px;background:var(--blue);color:white;border:0;padding:8px 14px;border-radius:8px;cursor:pointer;">
+          Pilih
+        </button>
+      </div>
+    </div>
+
+    <!-- Flight Card -->
+    <div style="background:white;border-radius:12px;padding:16px;box-shadow:0 6px 14px rgba(11,37,69,0.05);display:flex;align-items:center;justify-content:space-between;">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <img src="https://img.icons8.com/fluency/48/airplane-take-off.png" width="45">
+        <div>
+          <b>Jakarta → Bali</b>
+          <div style="color:var(--muted);font-size:13px;">AirAsia • 1 jam 50 menit</div>
+        </div>
+      </div>
+
+      <div style="text-align:right;">
+        <div style="font-size:18px;font-weight:700;color:var(--dark);">Rp 745.000</div>
+        <button style="margin-top:6px;background:var(--blue);color:white;border:0;padding:8px 14px;border-radius:8px;cursor:pointer;">
+          Pilih
+        </button>
+      </div>
+    </div>
+
+    <!-- Flight Card -->
+    <div style="background:white;border-radius:12px;padding:16px;box-shadow:0 6px 14px rgba(11,37,69,0.05);display:flex;align-items:center;justify-content:space-between;">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <img src="https://img.icons8.com/fluency/48/airplane-take-off.png" width="45">
+        <div>
+          <b>Surabaya → Makassar</b>
+          <div style="color:var(--muted);font-size:13px;">Garuda Indonesia • 1 jam 15 menit</div>
+        </div>
+      </div>
+
+      <div style="text-align:right;">
+        <div style="font-size:18px;font-weight:700;color:var(--dark);">Rp 1.120.000</div>
+        <button style="margin-top:6px;background:var(--blue);color:white;border:0;padding:8px 14px;border-radius:8px;cursor:pointer;">
+          Pilih
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <!-- PROMO -->
+  <h3 style="margin-top:35px;">Promo Tiket Pesawat</h3>
+  <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:12px;">
+
+     <!-- Promo 1 -->
+  <div style="flex:1;min-width:280px;background:white;border-radius:12px;box-shadow:0 6px 14px rgba(11,37,69,0.04);overflow:hidden;">
+    <img src="promopesawat1.webp" 
+         style="width:100%;height:150px;object-fit:cover;">
+    <div style="padding:15px;">
+      <b>Diskon 30% ke Bali</b>
+      <p style="color:var(--muted);font-size:13px;margin-top:4px;">Periode 1–30 Januari • Maskapai pilihan</p>
+      <button style="margin-top:8px;background:var(--blue);color:white;border:0;padding:8px 14px;border-radius:8px;cursor:pointer;">
+        Lihat Promo
+      </button>
+    </div>
+  </div>
+
+  <!-- Promo 2 -->
+  <div style="flex:1;min-width:280px;background:white;border-radius:12px;box-shadow:0 6px 14px rgba(11,37,69,0.04);overflow:hidden;">
+    <img src="promopesawat2.webp" 
+         style="width:100%;height:150px;object-fit:cover;">
+    <div style="padding:15px;">
+      <b>Hemat 20% ke Singapore</b>
+      <p style="color:var(--muted);font-size:13px;margin-top:4px;">Khusus AirAsia • Kuota terbatas</p>
+      <button style="margin-top:8px;background:var(--blue);color:white;border:0;padding:8px 14px;border-radius:8px;cursor:pointer;">
+        Lihat Promo
+      </button>
+    </div>
+  </div>
+
+  <!-- Promo 3 -->
+  <div style="flex:1;min-width:280px;background:white;border-radius:12px;box-shadow:0 6px 14px rgba(11,37,69,0.04);overflow:hidden;">
+    <img src="promopesawat3.webp" 
+         style="width:100%;height:150px;object-fit:cover;">
+    <div style="padding:15px;">
+      <b>Diskon 50% Domestik</b>
+      <p style="color:var(--muted);font-size:13px;margin-top:4px;">Promo akhir tahun • Semua rute</p>
+      <button style="margin-top:8px;background:var(--blue);color:white;border:0;padding:8px 14px;border-radius:8px;cursor:pointer;">
+        Lihat Promo
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<footer style="background:#ffffff; border-top:2px solid #1572ff; padding:30px 0; margin-top:50px;">
+    <div style="max-width:1100px; margin:auto; display:flex; justify-content:space-between; flex-wrap:wrap;">
+
+        <div style="width:30%; min-width:250px; margin-bottom:20px;">
+            <h3 style="color:#1572ff; margin:0; font-weight:bold;">Fasco Travel</h3>
+            <p style="color:#4a4a4a; margin-top:10px;">
+                Temukan tiket pesawat, hotel, dan paket wisata terbaik dengan mudah dan cepat.
+            </p>
+        </div>
+
+        <div style="width:30%; min-width:250px; margin-bottom:20px;">
+            <h4 style="color:#1572ff; margin:0 0 10px 0;">Layanan</h4>
+            <p style="color:#4a4a4a; margin:5px 0;">Tiket Pesawat</p>
+            <p style="color:#4a4a4a; margin:5px 0;">Hotel</p>
+            <p style="color:#4a4a4a; margin:5px 0;">Paket Wisata</p>
+        </div>
+
+        <div style="width:30%; min-width:250px; margin-bottom:20px;">
+            <h4 style="color:#1572ff; margin:0 0 10px 0;">Kontak</h4>
+            <p style="color:#4a4a4a; margin:5px 0;">Email: info@fsctravel.com</p>
+            <p style="color:#4a4a4a; margin:5px 0;">Telp: 0812-3456-7890</p>
+        </div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:25px; color:#4a4a4a; border-top:1px solid #eaeaea; padding-top:15px;">
+        © 2025 Fasco Travel • All Rights Reserved
+    </div>
+</footer>
+
+<script>
+     // Ambil nama file halaman sekarang
+  const current = window.location.pathname.split("/").pop();
+
+  // Ambil semua tombol fitur
+  const features = document.querySelectorAll(".feature");
+
+  features.forEach(btn => {
+    const link = btn.getAttribute("href");
+
+    // Jika link mengandung nama halaman → aktifkan
+    if (current === link) {
+      btn.classList.add("active");
+    } else {
+      btn.classList.remove("active");
+    }
+  });
+  </script>
+
+</body>
+</html>
